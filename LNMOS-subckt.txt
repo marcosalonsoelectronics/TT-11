@@ -1,0 +1,16 @@
+
+.subckt LNMOS d g s
+Cgd d g Cgd
+Cgs g s Cgs
+Cds d s Cds
+Bc d s I=if( V(g,s)<Vth,0, if( V(d,s)<V(g,s)-Vth ,  km*( 2*(V(g,s) - Vth)*V(d,s) - V(d,s)**2 ), km*( V(g,s) - Vth )**2   ) )
+Db s d Dbody
+.model Dbody D Vfwd=Vdon Ron=Rdon
+.ends LNMOS
+
+
+
+
+
+
+

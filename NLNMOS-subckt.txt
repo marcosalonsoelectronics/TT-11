@@ -1,0 +1,14 @@
+
+.subckt NLNMOS d g s
+Cgd d g Q=2*Cgd1*sqrt(Vgd1)*sqrt(V(d,s))
+Cgs g s Cgs
+Cds d s Q=2*Cds1*sqrt(Vds1)*sqrt(V(d,s))
+Bc d s I=if( V(g,s)<Vth,0, if( V(d,s)<V(g,s)-Vth ,  km*( 2*(V(g,s) - Vth)*V(d,s) - V(d,s)**2 ), km*( V(g,s) - Vth )**2   ) )
+Db s d Dbody
+.model Dbody D Vfwd=Vdon Ron=Rdon
+.ends NLNMOS
+
+
+
+
+
